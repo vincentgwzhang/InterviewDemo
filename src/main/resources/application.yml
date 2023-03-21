@@ -1,0 +1,14 @@
+spring:
+  output:
+    ansi:
+      enabled: always
+  jpa:
+    generate-ddl: true
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/interviewdemo?useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+    username: vincent
+    password: 1q2w3e4R
+  main:
+    banner-mode: off
