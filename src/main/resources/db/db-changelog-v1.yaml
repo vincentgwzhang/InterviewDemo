@@ -4,5 +4,4 @@ databaseChangeLog:
       author: Vincent
       changes:
         - sqlFile:
-            dbms: 'mysql'
             path: SQL/02_CreateLoginUser.sql
