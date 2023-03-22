@@ -4,4 +4,12 @@ databaseChangeLog:
       author: Vincent
       changes:
         - sqlFile:
+            dbms: 'mysql'
             path: SQL/02_CreateLoginUser.sql
+  - changeSet:
+      id: DB_H2_INIT
+      author: Vincent
+      changes:
+        - sqlFile:
+            dbms: 'h2'
+            path: SQL/02_H2_CreateLoginUser.sql
