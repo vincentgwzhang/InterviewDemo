@@ -3,6 +3,7 @@ package com.company.security.configuration;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -22,6 +23,7 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+                .csrf(csrf -> csrf.disable()) // For GraphQL
                 .authorizeHttpRequests((authorize) -> authorize
                         .requestMatchers(permitPaths()).permitAll()
                         .anyRequest().authenticated()
@@ -37,6 +39,8 @@ public class SecurityConfiguration {
 
     private String[] permitPaths() {
         return new String[] {
+                "/graphql**",
+                "/graphiql**",
                 "/swagger-ui.html",
                 "/test/**",
                 "/css/**",
