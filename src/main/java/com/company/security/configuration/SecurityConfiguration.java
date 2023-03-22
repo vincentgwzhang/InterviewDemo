@@ -37,6 +37,7 @@ public class SecurityConfiguration {
 
     private String[] permitPaths() {
         return new String[] {
+                "/swagger-ui.html",
                 "/test/**",
                 "/css/**",
                 "/js/**",
@@ -55,4 +56,8 @@ public class SecurityConfiguration {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
+    public static void main(String[] args) {
+        PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+        System.out.println(encoder.encode("admin"));
+    }
 }

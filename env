@@ -1,0 +1,7 @@
+version=v20210514
+image_prefix=guangweizhang_
+db_url=jdbc:mysql://10.5.0.4:3306/interview?useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+db_username=vincent
+db_password=1q2w3e4R
+db_name=interview
+db_port=3306

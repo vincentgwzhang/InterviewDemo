@@ -1,0 +1,31 @@
+version: '2'
+services:
+  sub_db:
+    container_name: ${image_prefix}MYSQL
+    image: mysql:latest
+    restart: always
+    ports:
+      - ${db_port}:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ${db_name}
+      MYSQL_USER: ${db_username}
+      MYSQL_PASSWORD: ${db_password}
+    networks:
+      spring-cloud-network:
+        ipv4_address: 10.5.0.4
+
+  demo-server:
+    container_name: guangweizhang_interview
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: guangweizhang:v1
+    ports:
+      - 18080:8080
+    networks:
+      spring-cloud-network:
+        ipv4_address: 10.5.0.5
+networks:
+  spring-cloud-network:
+    driver: bridge

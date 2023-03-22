@@ -12,3 +12,9 @@ spring:
     password: 1q2w3e4R
   main:
     banner-mode: off
+  liquibase:
+    change-log: classpath:database/changelog/changelog.xml
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
