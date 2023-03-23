@@ -1,15 +1,15 @@
 databaseChangeLog:
   - changeSet:
-      id: DB_INIT
+      id: DB_ADD_CATALOG_RELATED
       author: Vincent
       changes:
         - sqlFile:
             dbms: 'mysql'
-            path: SQL/03_CreateCatalog.sql
+            path: SQL/02_CreateLoginUser.sql
   - changeSet:
-      id: DB_H2_INIT
+      id: DB_H2_ADD_CATALOG_RELATED
       author: Vincent
       changes:
         - sqlFile:
             dbms: 'h2'
-            path: SQL/02_H2_CreateLoginUser.sql
+            path: SQL/03_H2_CreateCatalog.sql
