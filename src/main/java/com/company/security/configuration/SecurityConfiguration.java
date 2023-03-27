@@ -25,8 +25,10 @@ public class SecurityConfiguration {
         http
                 .csrf(csrf -> csrf.disable()) // For GraphQL
                 .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers(permitPaths()).permitAll()
-                        .anyRequest().authenticated()
+                        .requestMatchers("/admin/**", "/api/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/sales/**", "/api/sales/**").hasRole("SALES")
+                        //.requestMatchers(permitPaths()).permitAll()
+                        .anyRequest().permitAll()
                 )
                 .formLogin((form) -> form
                         .loginPage("/login")
